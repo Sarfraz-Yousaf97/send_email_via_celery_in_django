@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainapp',
     'django_celery_results',
+    'send_email',
 ]
 
 MIDDLEWARE = [
@@ -125,7 +126,14 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = '12323'
+EMAIL_HOST_PASSWORD = "bindgosg"
+TIME_ZONE = 'Asia/Karachi'
+DEFAULT_FROM_EMAIL = "Django@celery.com"
 
 # Celery settings
 CELERY_BROKER_URL = 'redis://127.0.0.1:6379'

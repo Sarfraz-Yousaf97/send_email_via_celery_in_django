@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from send_email.views import ReviewView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('mainapp.urls')),
+    # path('', include('mainapp.urls')),
+    # path('s', include('send_email.urls')),
+    path('reviews/', ReviewView.as_view(), name='reviews'),
 ]
